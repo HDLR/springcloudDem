@@ -1,0 +1,30 @@
+#单机
+server:
+  port: 8010
+  
+spring:
+  application:
+    name: ZuulTrain
+  sleuth:
+    sampler:
+      probability: 1
+  zipkin:
+    base-url: http://192.168.137.132:9411
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    status-page-url: http://localhost:${server.port}
+    instance-id: ZuulTrain-1:${server.port}
+    
+zuul:
+  routes:
+    AAA:
+      path: /cl/**
+      service-id: AAA
+      sensitive-headers: 
+#    AAA: /zu/**
+  ignored-patterns:
+  - /testdatatest/**

@@ -1,0 +1,43 @@
+#单机
+server:
+  port: 8001
+  
+spring:
+  mail:
+    host: smtp.qq.com
+    username: 492587402@qq.com
+    password: 
+    default-encoding: UTF-8
+  application:
+    name: AAA
+  sleuth:
+    sampler:
+      probability: 1
+  zipkin:
+    base-url: http://192.168.137.132:9411
+    
+logging:
+  level:
+    org.springframework.cloud.netflix.feign: debug
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    status-page-url: http://localhost:${server.port}
+    instance-id: AAA-1:${server.port}
+    
+
+##高可用
+#server:
+#  port: 8001
+#
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://localhost:8761/eureka/, http://localhost:8762/eureka/
+#  instance:
+#    appname: AAA
+#    status-page-url: http://localhost:${server.port}
+#    instance-id: AAA-1:${server.port}

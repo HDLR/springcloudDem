@@ -1,0 +1,29 @@
+#单机
+server:
+  port: 8761
+  
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url: 
+      default-zone: http://${eureka.instance.hostname}:8761/eureka/
+
+
+
+##高可用
+#server:
+#  port: 8761
+#  
+#eureka:
+#  instance:
+#    hostname: eureka1
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:8762/eureka/
+#      
+#spring:
+#  application:
+#    name: EurekaTrain
